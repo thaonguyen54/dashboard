@@ -1,0 +1,17 @@
+{
+  "heading1": "Hello, Digital Fortress",
+  "heading2": "Login to platform to start creating magic",
+  "login": "Log in",
+  "signup": "Sign Up",
+  "dont_have_account": "Don't have an account?",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "english": "English",
+    "vietnamese": "Vietnamese"
+  },
+  "forgot_password": "Forgot Password?",
+  "remember_me": "Remember Me"
+}
