@@ -10,6 +10,9 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
+				main: 'hsl(var(--main))',
+				'bg-input': 'hsl(var(--bg-input))',
+				'border-input': 'hsl(var(--border-input))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				'custom-blue': '#4D62E5',
@@ -24,10 +27,22 @@ const config: Config = {
 					foreground: 'hsl(var(--popover-foreground))'
 				},
 				primary: {
+					grey: {
+						dark: '#363A3D',
+						light: '#F4F4F4',
+					},
+					light: '#FFFFFF',
+					dark: '#1A1D21',
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
+					grey: {
+						dark: '#6F767E',
+						light: '#CDCECF',
+					},
+					light: '#F4F4F4',
+					dark: '#363A3D',
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
@@ -59,10 +74,6 @@ const config: Config = {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			fontFamily: {
-				plusJakaraSans: ['"Plus JakartaSans"', 'serif'],
-			},
-
 		},
 		borderImage: {
 			'gradient-border': '1px solid; border-image-source: linear-gradient(45deg, #82DBF7 0%, #B6F09C 100%);',
