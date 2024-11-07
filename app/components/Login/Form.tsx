@@ -1,14 +1,15 @@
-import React from 'react'
-import Heading from './Heading';
-import Option from './Option';
-import InputFields from './InputFields';
 import Link from 'next/link';
+import React from 'react';
+
+import Heading from './Heading';
+import InputFields from './InputFields';
+import Option from './Option';
 
 interface FormProps {
   type: string
 }
 
-const LOGIN_TYPES = {
+const FORM_TYPES = {
   LOGIN: 'login',
   REGISTER: 'register'
 }
@@ -24,11 +25,11 @@ const Form = ({type}: FormProps) => {
           <Option />
 
           <button className="w-full bg-[#B6F09C] text-[#0C1132] font-semibold py-2 mt-6 rounded-md transition duration-300">
-            {type == LOGIN_TYPES.LOGIN ? 'Log in' : 'Sign Up'}
+            {type == FORM_TYPES.LOGIN ? 'Log in' : 'Sign Up'}
           </button>
 
           {
-            type == LOGIN_TYPES.LOGIN ? 
+            type == FORM_TYPES.LOGIN ? 
             <div className='font-bold text-center mt-4 text-[#6F767E]'>
               Don't have an account?{' '}
               <Link href={'/register'}>
@@ -46,8 +47,6 @@ const Form = ({type}: FormProps) => {
               </Link>
             </div>
           }
-
-
         </div>
   )
 }
