@@ -1,7 +1,8 @@
 import React from "react";
-import LanguagueSelector from "../components/LanguageSelector";
-import ThemeToggle from "../components/ThemeToggle";
 import Image from "next/image";
+
+// import LanguagueSelector from "../components/LanguageSelector";
+// import ThemeToggle from "../components/ThemeToggle";
 
 export default function RootLayout({
   children,
@@ -10,13 +11,11 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex w-full min-h-screen justify-around">
-      {/* Left components */}
       <div className="w-[50%] min-h-screen flex flex-col items-center justify-around p-8">
-        {/* Theme Toggle */}
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         {/* Form */}
         {children}
-        <LanguagueSelector />
+        {/* <LanguagueSelector /> */}
       </div>
       {/* Right components */}
       <div className="w-[50%] bg-black">
