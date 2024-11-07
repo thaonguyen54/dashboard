@@ -18,9 +18,9 @@ export default function AuthLayout({
         {/* <LanguagueSelector /> */}
       </div>
       {/* Right components */}
-      <div className="w-[50%] bg-black">
+      <div className="w-[50%] bg-black rounded-l-[20px]">
         <Image
-          className="w-full rounded-l-[16px] object-cover"
+          className="w-full rounded-l-[20px] object-cover"
           src={"/images/login-img.png"}
           width={1000}
           height={150}
