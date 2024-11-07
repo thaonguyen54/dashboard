@@ -4,7 +4,7 @@ import Image from "next/image";
 // import LanguagueSelector from "../components/LanguageSelector";
 // import ThemeToggle from "../components/ThemeToggle";
 
-export default function RootLayout({
+export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
