@@ -1,24 +1,13 @@
-"use client"
-import { Checkbox } from "@/components/ui/checkbox";
-import { useTheme } from "next-themes";
 import React from "react";
 
-const Option = () => {
-  const { theme } = useTheme();
+import { Checkbox } from "@/components/ui/checkbox";
 
+const Option = () => {
   return (
     <div className="flex justify-between items-center mt-4">
       <div className="flex items-center gap-2 font-medium text-base">
-        <Checkbox
-          className={`${
-            theme === "dark" ? "bg-[#1A1D21] " : "border-[#CDCECF]"
-          }`}
-        />
-        <p
-          className={`${
-            theme === "dark" ? "text-[#6F767E]" : "text-[#CDCECF]"
-          }`}
-        >
+        <Checkbox className="bg-primary-light border-primary-grey-light dark:bg-primary-dark dark:border-secondary-dark"/>
+        <p className="text-secondary-grey-light dark:text-secondary-grey-dark">
           Remember Me
         </p>
       </div>
