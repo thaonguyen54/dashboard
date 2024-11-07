@@ -8,6 +8,9 @@ body {
 
 @layer base {
   :root {
+    --main: 0 0 0;
+    --bg-input: 244 244 244 1;
+    --border-input: 244 244 244 1;
     --radius: 0.5rem;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -35,6 +38,9 @@ body {
     --chart-5: 27 87% 67%;
   }
   .dark {
+    --main: 100 100 100;
+    --bg-input: 26 29 33 1;
+    --border-input: 26 29 3 1;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -62,12 +68,6 @@ body {
   }
 }
 
-@font-face{
-  font-family: 'plusJakaraSans';
-  src: url('/fonts/PlusJakartaSans-Light.ttf') format(truetype);
-  font-weight: normal;
-  font-style: normal;
-}
 
 :root {
   /* Your default theme */
