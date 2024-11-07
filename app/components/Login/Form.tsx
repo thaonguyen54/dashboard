@@ -8,27 +8,27 @@ interface FormProps {
   type: string
 }
 
-const Form = (formProps: FormProps) => {
+const LOGIN_TYPES = {
+  LOGIN: 'login',
+  REGISTER: 'register'
+}
+
+const Form = ({type}: FormProps) => {
   
   return (
     <div className="w-[45%]">
-          {/* Heading */}
           <Heading />
 
-          {/* Input Fields with Gradient Border on Focus */}
           <InputFields />
 
-          {/* Options */}
           <Option />
 
-          {/* Submit Button */}
           <button className="w-full bg-[#B6F09C] text-[#0C1132] font-semibold py-2 mt-6 rounded-md transition duration-300">
-            {formProps.type == 'login' ? 'Log in' : 'Sign Up'}
+            {type == LOGIN_TYPES.LOGIN ? 'Log in' : 'Sign Up'}
           </button>
 
-          {/* Sign Up Link */}
           {
-            formProps.type == 'login' ? 
+            type == LOGIN_TYPES.LOGIN ? 
             <div className='font-bold text-center mt-4 text-[#6F767E]'>
               Don't have an account?{' '}
               <Link href={'/register'}>
@@ -46,6 +46,8 @@ const Form = (formProps: FormProps) => {
               </Link>
             </div>
           }
+
+
         </div>
   )
 }
