@@ -12,7 +12,18 @@ const config: Config = {
 			colors: {
 				main: 'hsl(var(--main))',
 				'bg-input': 'hsl(var(--bg-input))',
+				'bg-toggle': 'rgba(var(--bg-toggle), 1)',
+				'bg-left-item-toggle': 'rgba(var(--bg-left-item-toggle), 1)',
+				'bg-right-item-toggle': 'rgba(var(--bg-right-item-toggle), 1)',
 				'border-input': 'hsl(var(--border-input))',
+				'border-toggle': 'rgba(var(--border-toggle), 1)',
+				'text-left-item-toggle': 'rgba(var(--text-left-item-toggle), 1)',
+				'text-right-item-toggle': 'rgba(var(--text-right-item-toggle), 1)',
+				'fill-left-icon-toggle': 'rgba(var(--fill-left-icon-toggle), 1)',
+				'fill-right-icon-toggle': 'rgba(var(--fill-right-icon-toggle), 1)',
+				'border-language-selector': 'rgba(var(--border-language-selector), 1)',
+				'bg-drop-content-language': 'rgba(var(--bg-drop-content-language), 1)',
+				'border-drop-content-language': 'rgba(var(--border-drop-content-language), 1)',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				'custom-blue': '#4D62E5',
@@ -70,9 +81,9 @@ const config: Config = {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
+				lg: '0.5rem',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
 			},
 		},
 		borderImage: {

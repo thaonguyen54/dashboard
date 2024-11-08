@@ -9,8 +9,18 @@ body {
 @layer base {
   :root {
     --main: 0 0 0;
-    --bg-input: 244 244 244 1;
+    --bg-toggle: 244, 244, 244;
+    --bg-left-item-toggle: 252, 252, 252;
+    --bg-right-item-toggle: 244, 244, 244;
+    --border-toggle: 244, 244, 244;
+    --text-left-item-toggle: 26, 29, 31;
+    --text-right-item-toggle: 111, 118, 126;
+    --fill-left-icon-toggle: 44, 47, 50;
+    --fill-right-icon-toggle: 111, 118, 126;
     --border-input: 244 244 244 1;
+    --border-language-selector: 244, 244, 244;
+    --bg-drop-content-language: 255, 255, 255;
+    --border-drop-content-language: 255, 255, 255;
     --radius: 0.5rem;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -40,7 +50,19 @@ body {
   .dark {
     --main: 100 100 100;
     --bg-input: 26 29 33 1;
-    --border-input: 26 29 3 1;
+    --bg-toggle: 26, 29, 33;
+    --bg-left-item-toggle: 26, 29, 33;
+    --bg-right-item-toggle: 45, 49, 54;
+    --border-toggle: 26, 29, 33;
+    --text-left-item-toggle: 111, 118, 126;
+    --text-right-item-toggle: 252, 252, 252;
+    --fill-left-icon-toggle: 111, 118, 126;
+    --fill-right-icon-toggle: 252, 252, 252;
+    --border-input: 26 29 33 1;
+    --border-language-selector: 54, 58, 61;
+    --bg-drop-content-language: 26, 29, 33;
+    --border-drop-content-language: 26, 29, 33;
+    --radius: 0.5rem;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -80,27 +102,4 @@ body {
   --foreground: white;
 }
 
-.focus-gradient-border:focus {
-  border: 2px solid;
-  border-image-slice: 1;
-  border-width: 2px;
-  border-image-source: linear-gradient(45deg, #82DBF7, #B6F09C);
-}
 
-.filter-custom-color{
-  filter: drop-shadow(0 0 0 #6F767E) invert(40%);
-}
-
-.filter-black {
-  /* {Brightness 0 to make back color} */
-  filter: brightness(0)  contrast(100%);
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
