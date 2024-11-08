@@ -3,7 +3,7 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <Form type='login'/>
+    <Form type='LOGIN'/>
   )
 }
 

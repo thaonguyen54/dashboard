@@ -3,7 +3,7 @@ import React from 'react'
 
 const Register = () => {
   return (
-    <Form type='register'/>
+    <Form type='REGISTER'/>
   )
 }
 
