@@ -9,39 +9,36 @@ interface FormProps {
   type: string
 }
 
-const FORM_TYPES = {
-  LOGIN: 'login',
-  REGISTER: 'register'
-}
-
 const FORM_CONTENT = {
   LOGIN: {
+    LINK: '/register',
+    TEXT: `Log in`,
     BOTTOM_TEXT: `Don't have an account?`,
   },
   REGISTER: {
+    LINK: '/login',
+    TEXT: `Sign up`,
     BOTTOM_TEXT: `Already have an account?`,
   }
 }
 
 const Form = ({type}: FormProps) => {
-  
+  const { TEXT, BOTTOM_TEXT, LINK } = FORM_CONTENT[type as keyof typeof FORM_CONTENT];
+
   return (
     <div className="w-[45%]">
           <Heading />
-
           <InputFields />
-
           <Option />
-
-          <button className="w-full bg-custom-green text-black font-semibold py-2 mt-6 rounded-md transition duration-300">
-            {type == FORM_TYPES.LOGIN ? 'Log in' : 'Sign Up'}
+          <button className="w-full bg-custom-green text-black font-semibold py-2 mt-6 rounded-lg transition duration-300">
+            {TEXT}
           </button>
           {
             <div className='font-bold text-center mt-4 text-secondary-grey-dark'>
-              {type == FORM_TYPES.LOGIN ? FORM_CONTENT.LOGIN.BOTTOM_TEXT : FORM_CONTENT.REGISTER.BOTTOM_TEXT}{' '}
-              <Link href={`${type == FORM_TYPES.LOGIN ? '/register' : '/login'}`}>
-                <span className="bg-gradient-to-br font-semibold from-[#82DBF7] to-[#B6F09C] bg-clip-text text-transparent cursor-pointer hover:underline hover:decoration-[#B6F09C]">
-                  {type == FORM_TYPES.LOGIN ? 'Sign up' : 'Login'}
+              {BOTTOM_TEXT}{' '}
+              <Link href={LINK}>
+                <span className="bg-gradient-to-br font-semibold from-custom-aqua to-custom-green bg-clip-text text-transparent cursor-pointer hover:underline hover:decoration-custom-green">
+                  {TEXT}
                 </span>
               </Link>
             </div>
