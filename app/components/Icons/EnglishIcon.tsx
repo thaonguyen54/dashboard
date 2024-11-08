@@ -1,7 +1,7 @@
 import React from "react";
-import { IconProps } from "./types";
+import type { SizeProps } from "../types";
 
-const EnglishIcon = ({ width, height }: IconProps) => {
+const EnglishIcon = ({ width, height }: SizeProps) => {
   return (
     <svg
       width={width}
