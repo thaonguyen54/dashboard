@@ -1,50 +1,45 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 
-const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+import LightIcon from "./Icons/LightIcon";
+import DarkIcon from "./Icons/DarkIcon";
+import type { SizeProps, ThemeTypes } from "./types";
+
+const THEMES = {
+  DARK: "dark",
+  LIGHT: "light",
+}
+
+const ThemeToggle = ({ width, height }: SizeProps) => {
+  const { setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  
+  const handleChangeTheme = (theme: ThemeTypes) => {
+    setTheme(theme);
+  }
 
   useEffect(() => {
-    // Prevents flashing
     setMounted(true);
-  });
+  },[]);  
 
   if (!mounted) return null;
 
   return (
-    <div className={`flex items-center justify-center space-x-2 p-1  ${theme ==='dark' ? 'bg-[#1A1D21] border-[#1A1D21]' : 'bg-[#F4F4F4] border-[#F4F4F4]'}  rounded-xl border  mx-5`}>
+    <div style={{ width: `${width}px`, height: `${height}px` }} className={`flex rounded-xl bg-bg-toggle border-border-toggle items-center justify-center space-x-2 p-1 border  mx-5`}>
       <div
-        onClick={() => setTheme("light")}
-        className={`flex items-center px-4 py-2 rounded-md cursor-pointer transition-colors duration-300 ${
-          theme === "dark" ? " text-black" : "bg-[#FCFCFC] text-white"
-        }`}
+        onClick={() => handleChangeTheme(THEMES.LIGHT as ThemeTypes)}
+        className="flex justify-center items-center w-full h-full rounded-lg cursor-pointer transition-transform duration-300 text-main bg-bg-left-item-toggle"
       >
-        <Image
-          src={"/icons/light-icon.png"}
-          className={`${theme === 'light' ? 'filter-black' : ''}`}
-          width={20}
-          height={20}
-          alt="light-mode"
-        />
-        <p className={`ml-2 ${theme === 'light' ? 'text-black' : ''} text-[#6F767E] font-bold`}>Light</p>
+        <LightIcon width="22" height="22" />
+        <p className="ml-2 font-bold text-text-left-item-toggle" >Light</p>
       </div>
       <div
-        onClick={() => setTheme("dark")}
-        className={`flex items-center px-4 py-2 rounded-md cursor-pointer transition-colors duration-300 ${
-          theme === "dark" ? "bg-[#2D3136] text-white" : " text-[#6F767E]"
-        }`}
+        onClick={() => handleChangeTheme(THEMES.DARK as ThemeTypes)}
+        className={`flex justify-center items-center w-full h-full rounded-lg  cursor-pointer transition-transform duration-300 text-main bg-bg-right-item-toggle`}
       >
-        <Image
-          src={"/icons/dark-icon.png"}
-          className={`${theme === 'light' ? 'filter-custom-color' : ''}`}
-          width={20}
-          height={20}
-          alt="dark-mode"
-        />
-        <p className={`ml-2 ${theme === 'dark' ? 'text-white' : ''} font-bold`}>Dark</p>
+        <DarkIcon width="22" height="22"/>
+        <p className="ml-2 font-bold text-text-right-item-toggle" >Dark</p>
       </div>
     </div>
   );
