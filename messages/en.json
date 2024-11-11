@@ -1,0 +1,20 @@
+{
+  "Index": {
+    "HEADING1": "Hello",
+    "HEADING2": "Login to platform to start creating magic",
+    "LOGIN": "Log in",
+    "REGISTER": "Sign Up",
+    "DONT_HAVE_ACCOUNT": "Don't have an account?",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "THEME": {
+      "LIGHT": "Light",
+      "DARK": "Dark"
+    },
+    "LANGUAGE": {
+      "ENGLISH": "English",
+      "VIETNAMESE": "Vietnamese"
+    },
+    "FORGOT_PASSWORD": "Forgot Password?",
+    "REMEMBER_ME": "Remember Me"
+  }
+}
