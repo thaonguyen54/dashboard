@@ -15,12 +15,11 @@ const THEMES = {
 const ThemeToggle = ({ width, height }: SizeProps) => {
   const { setTheme } = useTheme();
  
-  const t = useTranslations();
+  const t = useTranslations("THEME");
   
   const handleChangeTheme = (theme: ThemeTypes) => {
     setTheme(theme);
   }
-
 
   return (
     <div style={{ width: `${width}px`, height: `${height}px` }} className={"flex rounded-xl bg-bg-toggle border-border-toggle items-center justify-center space-x-2 p-1 border  mx-5"}>
