@@ -22,23 +22,18 @@ export default function AuthLayout({
           <LanguagueSelector/>
         </NextIntlClientProvider>
       </div>
-      <div className="relative w-[50%] h-screen bg-black rounded-l-[20px]">
-        <Image
-          className="w-full h-screen rounded-l-[20px] object-cover"
-          src={"/images/login-img.png"}
-          width={1000}
-          height={150}
-          alt="login-image"
-        />
-        <p className="absolute left-24 bottom-36 right-72 text-white text-3xl font-medium p-2 rounded">
-          Digital Fortress has been a game-changer for our content creation process.
-          <br />
-          <br />
-          The AI-powered tools are incredibly user-friendly and have saved us countless hours of work.
-        </p>
-        <div className="absolute bottom-12 left-24 ml-2">
-          <p className="font-medium text-white">Lily Alisson</p>
-          <p className="text-custom-green">CMO at Digital Fortress</p>
+      <div className="flex flex-col justify-end w-[50%] min-h-screen bg-black rounded-l-[20px] ">
+        <div className=" min-h-screen">
+          <p className=" text-white text-3xl font-medium p-2 rounded">
+            Digital Fortress has been a game-changer for our content creation process.
+            <br />
+            <br />
+            The AI-powered tools are incredibly user-friendly and have saved us countless hours of work.
+          </p>
+          <div className="ml-2">
+            <p className="font-medium text-white">Lily Alisson</p>
+            <p className="text-custom-green">CMO at Digital Fortress</p>
+          </div>
         </div>
       </div>
     </div>
