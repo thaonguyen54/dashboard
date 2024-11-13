@@ -22,8 +22,8 @@ export default function AuthLayout({
           <LanguagueSelector/>
         </NextIntlClientProvider>
       </div>
-      <div className="flex flex-col justify-end w-[50%] min-h-screen bg-black rounded-l-[20px] ">
-        <div className=" min-h-screen">
+      <div className="flex flex-col justify-end w-[50%] min-h-screen bg-black rounded-l-[20px] bg-digitalFortress">
+        <div className="items-end pr-44 ml-6 mb-6">
           <p className=" text-white text-3xl font-medium p-2 rounded">
             Digital Fortress has been a game-changer for our content creation process.
             <br />
