@@ -1,6 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import {Plus_Jakarta_Sans} from "next/font/google"
-import type { Metadata } from "next";import "./globals.css";
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,7 +13,7 @@ const plus_jakarta_sans = Plus_Jakarta_Sans({
 })
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {

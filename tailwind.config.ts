@@ -9,6 +9,9 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			backgroundImage: {
+				digitalFortress: "url('/images/login-img.png')",
+			},
 			colors: {
 				main: 'hsl(var(--main))',
 				'bg-input': 'hsl(var(--bg-input))',
