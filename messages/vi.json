@@ -1,11 +1,9 @@
 {
-  "Index": {
+  "AUTH_HEADER": {
     "HEADING1": "Xin chào",
-    "HEADING2": "Đăng nhập để bắt đầu tạo ra những điều kỳ diệu",
-    "LOGIN": "Đăng nhập",
-    "REGISTER": "Đăng ký",
-    "DONT_HAVE_ACCOUNT": "Chưa có tài khoản?",
-    "ALREADY_HAVE_ACCOUNT": "Đã có tài khoản?",
+    "HEADING2": "Đăng nhập để bắt đầu tạo ra những điều kỳ diệu"
+  },
+  "COMMON": {
     "THEME": {
       "LIGHT": "Sáng",
       "DARK": "Tối"
@@ -13,7 +11,13 @@
     "LANGUAGE": {
       "ENGLISH": "Tiếng Anh",
       "VIETNAMESE": "Tiếng Việt"
-    },
+    }
+  },
+  "AUTH": {
+    "LOGIN": "Đăng nhập",
+    "REGISTER": "Đăng ký",
+    "DONT_HAVE_ACCOUNT": "Chưa có tài khoản?",
+    "ALREADY_HAVE_ACCOUNT": "Đã có tài khoản?",
     "FORGOT_PASSWORD": "Quên mật khẩu?",
     "REMEMBER_ME": "Nhớ tài khoản"
   }
