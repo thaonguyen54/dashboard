@@ -30,7 +30,7 @@ const LanguagueSelector = () => {
     LANGUAGES.find((language) => language.code === locale) || LANGUAGES[0]
   )
    
-  const t = useTranslations("LANGUAGE");
+  const t = useTranslations("COMMON.LANGUAGE");
   
   const languageSwitcher = (language: LanguagueSelectorOption) => {
     const segments = pathname.split('/');
