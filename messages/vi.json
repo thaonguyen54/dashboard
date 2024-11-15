@@ -20,5 +20,9 @@
     "ALREADY_HAVE_ACCOUNT": "Đã có tài khoản?",
     "FORGOT_PASSWORD": "Quên mật khẩu?",
     "REMEMBER_ME": "Nhớ tài khoản"
+  },
+  "HELPER_TEXT": {
+    "INVALID_EMAIL": "Vui lòng nhập email hợp lệ",
+    "INVALID_PASSWORD": "Mật khẩu phải có từ 6 đến 255 ký tự"
   }
 }

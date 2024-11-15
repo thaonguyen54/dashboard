@@ -20,5 +20,9 @@
     "ALREADY_HAVE_ACCOUNT": "Already have an account?",
     "FORGOT_PASSWORD": "Forgot Password?",
     "REMEMBER_ME": "Remember Me"
+  },
+  "HELPER_TEXT": {
+    "INVALID_EMAIL": "Please input valid email",
+    "INVALID_PASSWORD": "Password must have from 6 to 255 characters"
   }
 }
