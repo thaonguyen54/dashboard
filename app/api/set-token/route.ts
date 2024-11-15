@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { serialize } from 'cookie';
+import { cookies } from 'next/headers'
 
 export async function POST(request: NextRequest) {
     const { accessToken } = await request.json(); // Get access token from next client
@@ -8,15 +8,13 @@ export async function POST(request: NextRequest) {
         if (accessToken) {
             const response = NextResponse.json({ accessToken }, { status: 200 });
 
-            response.headers.set(
-                "Set-Cookie",
-                serialize("at", accessToken, {
-                    httpOnly: true,
-                    maxAge: 60 * 5,
-                    sameSite: "strict",
-                    path: "/"
-                })
-            );
+            const cookieStore = cookies()
+            cookieStore.set("at", accessToken, {
+                httpOnly: true,
+                maxAge: 60 * 5,
+                sameSite: "strict",
+                path: "/"
+            })
 
             return response;
         }
