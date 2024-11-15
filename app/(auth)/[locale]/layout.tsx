@@ -1,22 +1,30 @@
 import React from "react";
-import Image from "next/image";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import {AbstractIntlMessages, NextIntlClientProvider, useMessages} from 'next-intl';
 
 import LanguagueSelector from "../../_components/LanguageSelector";
 import ThemeToggle from "../../_components/ThemeToggle";
+import { isTokenExpired } from "@/app/utils/validateJWT";
 
 export default function AuthLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = cookies();
+  const accessToken = cookieStore.get("at")?.value;
+
+  if (accessToken && !isTokenExpired(accessToken)) {
+    redirect("/dashboard"); // Redirect to dashboard if user logged
+  }
   
   const messages: AbstractIntlMessages = useMessages();
   
   return (
     <div className="flex w-full min-h-screen justify-around">
       <div className="w-[50%] min-h-screen flex flex-col items-center justify-around p-8">
-        <NextIntlClientProvider messages={messages.Index as AbstractIntlMessages}>
+        <NextIntlClientProvider messages={messages as AbstractIntlMessages}>
           <ThemeToggle width="293" height="40"/>
             {children}
           <LanguagueSelector/>

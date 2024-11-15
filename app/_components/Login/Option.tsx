@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const Option = () => {
-  const t = useTranslations("Index");
+  const t = useTranslations("AUTH");
 
   return (
     <div className="flex justify-between items-center mt-4">

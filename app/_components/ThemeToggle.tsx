@@ -15,7 +15,7 @@ const THEMES = {
 const ThemeToggle = ({ width, height }: SizeProps) => {
   const { setTheme } = useTheme();
  
-  const t = useTranslations("THEME");
+  const t = useTranslations("COMMON.THEME");
   
   const handleChangeTheme = (theme: ThemeTypes) => {
     setTheme(theme);

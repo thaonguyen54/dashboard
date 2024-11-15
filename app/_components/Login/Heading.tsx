@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 
 const Heading = () => {
-  const t = useTranslations("Index");
+  const t = useTranslations("AUTH_HEADER");
 
   return (
     <div className="mb-12">
