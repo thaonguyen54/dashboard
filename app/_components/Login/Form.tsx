@@ -30,6 +30,11 @@ const FORM_CONTENT = {
   }
 }
 
+const AUTH_ENDPOINT = {
+  LOGIN: 'auth/local',
+  REGISTER: 'auth/local/register'
+}
+
 
 const Form = ({ type }: FormProps) => {
   
@@ -42,16 +47,28 @@ const Form = ({ type }: FormProps) => {
   const handleAuth = async () => {
     const authData = authStore.authData;
     
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/local`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${AUTH_ENDPOINT[type as keyof typeof AUTH_ENDPOINT]}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        identifier: authData.email,
-        password: authData.password, 
-      }),
+      body: JSON.stringify(
+        type === 'LOGIN' ? {
+          identifier: authData.email,
+          password: authData.password
+        } : {
+          username: authData.email.split('@')[0],
+          email: authData.email,
+          password: authData.password
+        }
+      ),
     })
+
+    if(response.status === 400){
+      const { error } = await response.json();
+      toast.error(error.message);
+      return;
+    }
 
     const { jwt } = await response.json();
     if(!jwt) {
