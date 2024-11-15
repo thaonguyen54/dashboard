@@ -11,7 +11,6 @@ import { useRouter } from 'next/navigation';
 
 import Heading from './Heading';
 import Option from './Option';
-import useAuthStore from '@/stores/authStore';
 import InputField from '@/components/ui/input-field';
 import EmailIcon from '../Icons/EmailIcon';
 import PasswordIcon from '../Icons/PasswordIcon';
@@ -39,20 +38,17 @@ const AUTH_ENDPOINT = {
   REGISTER: 'auth/local/register'
 }
 
+const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 const Form = ({ type }: FormProps) => {
   
   const t = useTranslations("AUTH");
-  
+  const tHelperText = useTranslations("HELPER_TEXT");
   const { BUTTON_TEXT, BOTTOM_TEXT, LINK, SPAN_BOTTOM_TEXT } = FORM_CONTENT[type as keyof typeof FORM_CONTENT];
-  const authStore = useAuthStore();
   const router = useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-  
-  const handleAuth = async (authData: FieldValues) => {
-    
+  const onSubmit = async (authData: FieldValues) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${AUTH_ENDPOINT[type as keyof typeof AUTH_ENDPOINT]}`, {
       method: 'POST',
       headers: {
@@ -81,9 +77,6 @@ const Form = ({ type }: FormProps) => {
       toast.error('Email or password is incorrect');
       return;
     }
-
-    //clear data in store after Login successful
-    authStore.clearStore();
     
     const setToken = await fetch(`${process.env.NEXT_PUBLIC_API_ROUTE}/set-token`, {
       method: 'POST',
@@ -103,12 +96,10 @@ const Form = ({ type }: FormProps) => {
   return (
     <div className="w-[45%]">
           <Heading />
-          <form onSubmit={handleSubmit((authData) => handleAuth(authData))}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className='flex flex-col gap-4'>
-              <InputField icon={<EmailIcon width="18" height="14" />} placeholder="Email" type="text" {...register('email', {pattern: emailRegex})}/>
-               {errors.email && <p className='text-red-600'>Please input valid email</p>}
-              <InputField icon={<PasswordIcon width="14" height="16" />} placeholder="Password" type="password" {...register('password', {minLength: 6, maxLength: 255})} />
-              {errors.password && <p className='text-red-600'>Password must have from 6 to 255 characters</p>}
+              <InputField icon={<EmailIcon width="18" height="14" />} error={errors.email} helperText={tHelperText("INVALID_EMAIL")} placeholder="Email" type="text" {...register('email', {pattern: EMAIL_REGEX})}/>
+              <InputField icon={<PasswordIcon width="14" height="16" />} error={errors.password} helperText={tHelperText("INVALID_PASSWORD")} placeholder="Password" type="password" {...register('password', {minLength: 6, maxLength: 255})} />
             </div>  
             {/* <InputFields /> */}
             <Option />
