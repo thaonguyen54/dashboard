@@ -25,7 +25,7 @@ export default function AuthLayout({
     <div className="flex w-full min-h-screen justify-around">
       <div className="w-[50%] min-h-screen flex flex-col items-center justify-around p-8">
         <NextIntlClientProvider messages={messages as AbstractIntlMessages}>
-          <ThemeToggle width="293" height="40"/>
+          <ThemeToggle width="293px" height="40px"/>
             {children}
           <LanguagueSelector/>
         </NextIntlClientProvider>
