@@ -2,6 +2,7 @@ import React, { forwardRef } from "react";
 import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 
 interface InputFieldProps {
+  className?: string;
   icon: React.ReactNode;
   placeholder: string;
   type: string;
@@ -13,7 +14,7 @@ interface InputFieldProps {
 }
 
 const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
-  ({ icon, placeholder, type, setInputValue, error, helperText, ...props },ref) => {
+  ({ className, icon, placeholder, type, setInputValue, error, helperText, ...props },ref) => {
     const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
       if (setInputValue) {
         setInputValue(e.target.value);
@@ -22,12 +23,12 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
 
     return (
       <div>
-        <div className="relative flex items-center">
+        <div className={`relative flex items-center`}>
           <span className="absolute left-3 text-secondary-grey-dark">
             {icon}
           </span>
           <input
-            className="w-full text-main bg-input border-input text-base placeholder-secondary-grey-dark p-2 pl-10 rounded-lg border focus:outline-none focus:border-2 focus:border-custom-green"
+            className={`${className} text-main text-base p-2 pl-10 rounded-lg focus:outline-none focus:border-2 focus:border-custom-green`}
             type={type}
             onChange={handleChangeInput}
             placeholder={placeholder}
