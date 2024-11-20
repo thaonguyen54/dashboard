@@ -9,9 +9,24 @@ body {
 @layer base {
   :root {
     --main: 0 0 0;
+    --main-opposition: 100 100 100;
+    --bg-dashboard: 242, 242, 242;
+    --bg-checkbox: 255, 255, 255;
+    --border-checkbox: 244, 244, 244;
     --bg-toggle: 244, 244, 244;
     --bg-left-item-toggle: 252, 252, 252;
     --bg-right-item-toggle: 244, 244, 244;
+    --bg-chevron: 244, 244, 244;
+    --border-navigation: 244, 244, 244;
+    --bg-navigation: 255, 255, 255;
+    --text-chevron: 44, 47, 50;
+    --text-license-active: 2, 122, 72;
+    --bg-license-active: 236, 253, 243;
+    --text-customer-data: 234, 171, 0;
+    --bg-customer-data: 255, 171, 0;
+    --text-admin: 187, 21, 9;
+    --bg-admin: 255, 86, 48;
+    --bg-input-dashboard: 244, 244, 244;
     --border-toggle: 244, 244, 244;
     --text-left-item-toggle: 26, 29, 31;
     --text-right-item-toggle: 111, 118, 126;
@@ -21,6 +36,7 @@ body {
     --border-language-selector: 244, 244, 244;
     --bg-drop-content-language: 255, 255, 255;
     --border-drop-content-language: 255, 255, 255;
+    --bg-toggle-collapse: 252, 252, 252;
     --radius: 0.5rem;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -46,11 +62,34 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%,
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
     --main: 100 100 100;
+    --main-opposition: 0 0 0;
+    --bg-dashboard: 19, 22, 25;
     --bg-input: 26 29 33 1;
     --bg-toggle: 26, 29, 33;
+    --bg-chevron: 26, 29, 33;
+    --border-navigation: 40, 40, 40;
+    --bg-navigation: 19, 22, 25;
+    --text-chevron: 255, 255, 255;
+    --text-license-active: 70, 232, 165;
+    --bg-license-active: 14, 90, 58;
+    --text-customer-data: 255, 214, 102;
+    --bg-customer-data: 66, 52, 25;
+    --text-admin: 255, 172, 130;
+    --bg-admin: 66, 39, 33;
+    --bg-input-dashboard: 26, 29, 33;
+    --bg-checkbox: 26, 29, 33;
+    --border-checkbox: 54, 58, 61;
     --bg-left-item-toggle: 26, 29, 33;
     --bg-right-item-toggle: 45, 49, 54;
     --border-toggle: 26, 29, 33;
@@ -62,6 +101,7 @@ body {
     --border-language-selector: 54, 58, 61;
     --bg-drop-content-language: 26, 29, 33;
     --border-drop-content-language: 26, 29, 33;
+    --bg-toggle-collapse: 45, 49, 54;
     --radius: 0.5rem;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -87,6 +127,14 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -100,6 +148,15 @@ body {
 [data-theme='dark'] {
   --background: black;
   --foreground: white;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 
