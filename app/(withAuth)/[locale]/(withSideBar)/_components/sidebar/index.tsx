@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import ThemeToggle from "@/app/_components/ThemeToggle";
 
 import {
@@ -24,6 +23,7 @@ import Link from "next/link";
 import DashboardIcon from "@/app/_components/Icons/DashboardIcon";
 import WifiIcon from "@/app/_components/Icons/WifiIcon";
 import ScheduleIcon from "@/app/_components/Icons/ScheduleIcon";
+import ChevronIcon from "@/app/_components/Icons/ChevronIcon";
 
 type SidebarItemProps = {
   icon: React.ReactNode;
@@ -38,6 +38,33 @@ const SIDEBAR_ITEMS: SidebarItemProps[] = [
   { icon: <ScheduleIcon width="24" height="24" />, text: "Schedule", url: '/schedule'  },
 ]
 
+const TOGGLE_COLLAPSE_SIZE = {
+  true: {
+    width: "234px",
+    height: "44px"
+  },
+  false: {
+    width: "48px",
+    height: "48px"
+  }
+}
+
+const COLLAPSE_CONTENT = {
+  true: {
+    file: "digital-image.png",
+    arrow: <ChevronIcon width="7" height="10" direction="LEFT" />,
+  },
+  false: {
+    file: "Logo.png",
+    arrow: <ChevronIcon width="7" height="10" direction="RIGHT" />,
+  },
+};
+
+const TOGGLE_STYLE = {
+  true: "flex-col gap-3",
+  false: "",
+};
+
 const AppSideBar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   const [itemClicked, setIsClicked] = useState<SidebarItemProps>(
     SIDEBAR_ITEMS.find((item) => item.text === "Dashboard") || SIDEBAR_ITEMS[0]
@@ -45,30 +72,8 @@ const AppSideBar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
 
   const {open, setOpen} = useSidebar();
   
-  const COLLAPSE_CONTENT = {
-    true: {
-      file: "digital-image.png",
-      arrow: <ChevronLeft className="w-4 h-4" />,
-    },
-    false: {
-      file: "Logo.png",
-      arrow: <ChevronRight className="w-4 h-4" />,
-    }
-  }
-
   const handleSidebarToggle = () => {
     setOpen(!open);
-  }
-
-  const TOGGLE_COLLAPSE_SIZE = {
-    true: {
-      width: "234px",
-      height: "44px"
-    },
-    false: {
-      width: "48px",
-      height: "48px"
-    }
   }
 
   return (
@@ -76,7 +81,7 @@ const AppSideBar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
       <div className="p-1 flex flex-col flex-grow w-full h-full rounded-lg bg-main-opposition ">
         <div>
           <SidebarHeader className="border-b-2">
-            <div className={`flex ${!open && 'flex-col gap-3'} justify-between items-center p-1 pb-6`}>
+            <div className={`flex ${TOGGLE_STYLE[`${!open}`]} justify-between items-center p-1 pb-6`}>
               <Image
               //Refactor size
                 className="w-[120px] h-[32px]"
