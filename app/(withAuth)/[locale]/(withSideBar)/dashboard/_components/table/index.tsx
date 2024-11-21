@@ -7,7 +7,14 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import DeleteIcon from "@/app/_components/Icons/DeleteIcon";
 import EditIcon from "@/app/_components/Icons/EditIcon";
 
-
+const licenseStyle = (license: string) => {
+  switch(license) {
+    case 'Customer data':
+      return 'bg-light-alpha-customer text-text-customer-data dark:bg-dark-alpha-customer';
+    case 'Admin':
+      return 'bg-light-alpha-admin dark:bg-dark-alpha-admin text-text-admin';
+  }
+}
 
 const DashboardTable = ({ data }: any) => {
   return (
@@ -46,7 +53,7 @@ const DashboardTable = ({ data }: any) => {
                   <p className="bg-bg-license-active font-medium text-text-license-active px-2 py-1 rounded-full  text-xs">&#x2022; {item.licenseStatus}</p>
                   {
                     item.licenseUse.map((use: any, index: any) => (
-                      <div key={index} className={`${use === 'Customer data' ? 'bg-light-alpha-customer text-text-customer-data font-medium dark:bg-dark-alpha-customer' : 'bg-light-alpha-admin dark:bg-dark-alpha-admin font-medium text-text-admin'} px-2 py-1 rounded-full text-xs`}>{use}</div>
+                      <div key={index} className={`${licenseStyle(use)} px-2 py-1 font-medium rounded-full text-xs`}>{use}</div>
                     ))
                   }
                 </div>
