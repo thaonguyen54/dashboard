@@ -98,8 +98,8 @@ const Form = ({ type }: FormProps) => {
           <Heading />
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className='flex flex-col gap-4'>
-              <InputField icon={<EmailIcon width="18" height="14" />} error={errors.email} helperText={tHelperText("INVALID_EMAIL")} placeholder="Email" type="text" {...register('email', {pattern: EMAIL_REGEX})}/>
-              <InputField icon={<PasswordIcon width="14" height="16" />} error={errors.password} helperText={tHelperText("INVALID_PASSWORD")} placeholder="Password" type="password" {...register('password', {minLength: 6, maxLength: 255})} />
+              <InputField icon={<EmailIcon width="18" height="14" />} className='w-full border-input border bg-input' error={errors.email} helperText={tHelperText("INVALID_EMAIL")} placeholder="Email" type="text" {...register('email', {pattern: EMAIL_REGEX})}/>
+              <InputField icon={<PasswordIcon width="14" height="16" />} className='w-full border-input border bg-input' error={errors.password} helperText={tHelperText("INVALID_PASSWORD")} placeholder="Password" type="password" {...register('password', {minLength: 6, maxLength: 255})} />
             </div>  
             {/* <InputFields /> */}
             <Option />
