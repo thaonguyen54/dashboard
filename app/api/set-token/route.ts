@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
             const cookieStore = cookies()
             cookieStore.set("at", accessToken, {
                 httpOnly: true,
-                maxAge: 60 * 5,
+                maxAge: 60 * 30,
                 secure: process.env.NODE_ENV === "production",
                 sameSite: "strict",
                 path: "/"
