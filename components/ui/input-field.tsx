@@ -28,7 +28,7 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
             {icon}
           </span>
           <input
-            className={`${className} text-main text-base p-2 pl-10 rounded-lg focus:outline-none focus:border-2 focus:border-custom-green`}
+            className={`text-main text-base p-2 pl-10 rounded-lg focus:outline-none focus:border-2 focus:border-custom-green ${className}`}
             type={type}
             onChange={handleChangeInput}
             placeholder={placeholder}
