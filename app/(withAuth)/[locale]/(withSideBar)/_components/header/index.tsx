@@ -10,7 +10,6 @@ import SearchIcon from '@/app/_components/Icons/SearchIcon'
 
 const DashboardHeading = () => {
   return (
-    //Refactor the background color**
     <div className='bg-main-opposition border border-main-opposition flex justify-between p-6 mt-2 ml-4 mr-4 w-auto rounded-2xl '>
       <InputField className='w-[340px]  placeholder-secondary-grey-dark bg-bg-input-dashboard' icon={<SearchIcon width='18' height='24'/>} placeholder="Search anything" type="text" />
       <div className='flex items-center gap-8'>
