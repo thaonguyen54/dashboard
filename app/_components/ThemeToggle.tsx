@@ -16,6 +16,16 @@ const THEMES = {
   LIGHT: "light",
 }
 
+const SWAP_THEME = {
+  dark: THEMES.LIGHT,
+  light: THEMES.DARK
+}
+
+const THEME_ICON = {
+  dark: <DarkIcon width="22" height="22" />,
+  light: <LightIcon width="22" height="22" />
+}
+
 const ThemeToggle = ({ width, height, isCollapsed }: ThemeToggleProps) => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -30,20 +40,10 @@ const ThemeToggle = ({ width, height, isCollapsed }: ThemeToggleProps) => {
   const handleChangeTheme = (theme: ThemeTypes) => {
     setTheme(theme);
   }
-
-  const THEME_ICON = {
-    dark: <DarkIcon width="22" height="22" />,
-    light: <LightIcon width="22" height="22" />
-  }
-
-  const SWAP_THEME = {
-    dark: THEMES.LIGHT,
-    light: THEMES.DARK
-  }
-
+  
   const COLLAPSE_CONTENT = {
     true: (
-      <div style={{ width: `${width}`, height: `${height}` }} className={`flex rounded-xl bg-bg-toggle border-border-toggle items-center justify-center space-x-2 p-1 border  mx-5`}>
+      <div style={{ width, height }} className={`flex rounded-xl bg-bg-toggle border-border-toggle items-center justify-center space-x-2 p-1 border  mx-5`}>
         <div
           onClick={() => handleChangeTheme(THEMES.LIGHT as ThemeTypes)}
           className="flex justify-center items-center w-full h-full rounded-lg cursor-pointer transition-transform duration-300 text-main bg-bg-left-item-toggle"
