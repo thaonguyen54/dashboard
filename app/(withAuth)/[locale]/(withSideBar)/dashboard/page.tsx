@@ -1,28 +1,37 @@
 import React from "react";
 
 import DashboardTable from "./_components/table";
+import { fetchProjects } from "./action";
 
-// Fake data
-const generateFakeData = (count: number) => {
-  return Array.from({ length: count }, (_, i) => ({
-    id: i + 1,
-    project: "Sisyphus",
-    domain: "sisyphus.com",
-    lastAssessed: `${16 + (i % 15)} Jan 2022`,
-    licenseStatus: "Active",
-    licenseUse: ["Customer data", "Admin"],
-  }));
-};
+const DEFAULT_PAGE = 1;
+const DEFAULT_PAGE_SIZE = 10;
 
-const data = generateFakeData(10);
+let page = DEFAULT_PAGE;
+let pageSize = DEFAULT_PAGE_SIZE;
 
-const Dashboard = () => {
+const Dashboard = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) => {
+  const filter = await searchParams;
+
+  if(filter.page || filter.pageSize) {
+    page = Number(filter.page) || DEFAULT_PAGE;
+    pageSize = Number(filter.pageSize) || DEFAULT_PAGE_SIZE;
+  }
+
+  const responses = await fetchProjects(page, pageSize);
+
+  const projects = responses.data;
+  const pagination = responses.meta;
+
   return (
     <div className="w-full min-h-screen">
       <header className="flex justify-between items-center mb-4 mt-2 ml-4">
         <h1 className="text-2xl text-main font-bold">Dashboard</h1>
       </header>
-      <DashboardTable data={data} />
+      <DashboardTable projects={projects} meta={pagination} />
     </div>
   );
 };
