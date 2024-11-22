@@ -17,7 +17,7 @@ export const fetcher = async (endpoint: string, method: string, token?: string, 
     if (!res.ok) {
         throw new Error("An error occurred while fetching the data.");
     }
-
+//11
     return res.json();
 }
 
