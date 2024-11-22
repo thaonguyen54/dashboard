@@ -24,6 +24,7 @@ import DashboardIcon from "@/app/_components/Icons/DashboardIcon";
 import WifiIcon from "@/app/_components/Icons/WifiIcon";
 import ScheduleIcon from "@/app/_components/Icons/ScheduleIcon";
 import ChevronIcon from "@/app/_components/Icons/ChevronIcon";
+import { useTranslations } from "next-intl";
 
 type SidebarItemProps = {
   icon: React.ReactNode;
@@ -32,11 +33,23 @@ type SidebarItemProps = {
 }
 
 const SIDEBAR_ITEMS: SidebarItemProps[] = [
-  { icon: <DashboardIcon width="24" height="24" />, text: "Dashboard", url: '/dashboard' },
-  { icon: <TaskIcon width="24" height="24" />, text: "Task", url: '/task'  },
-  { icon: <WifiIcon width="24" height="24" />, text: "Projects", url: '/project'  },
-  { icon: <ScheduleIcon width="24" height="24" />, text: "Schedule", url: '/schedule'  },
-]
+  {
+    icon: <DashboardIcon width="24" height="24" />,
+    text: "DASHBOARD",
+    url: "/dashboard",
+  },
+  { icon: <TaskIcon width="24" height="24" />, text: "TASK", url: "/task" },
+  {
+    icon: <WifiIcon width="24" height="24" />,
+    text: "PROJECT",
+    url: "/project",
+  },
+  {
+    icon: <ScheduleIcon width="24" height="24" />,
+    text: "SCHEDULES",
+    url: "/schedule",
+  },
+];
 
 const TOGGLE_COLLAPSE_SIZE = {
   true: {
@@ -71,6 +84,7 @@ const AppSideBar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
   );
 
   const {open, setOpen} = useSidebar();
+  const t = useTranslations("DASHBOARD.SIDEBAR");
   
   const handleSidebarToggle = () => {
     setOpen(!open);
@@ -104,7 +118,7 @@ const AppSideBar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
                       <SidebarMenuButton onClick={() => {setIsClicked(item)}} className={`hover:bg-custom-green font-semibold ${itemClicked.text === item.text ? 'bg-custom-green' : ""}`} asChild>
                         <Link href={item.url} className="py-5">
                             {item.icon}
-                            <span className={`text-sm ${itemClicked.text === item.text ? 'text-primary-dark' : "text-secondary-grey-dark"}`}>{item.text}</span>
+                            <span className={`text-sm ${itemClicked.text === item.text ? 'text-primary-dark' : "text-secondary-grey-dark"}`}>{t(item.text)}</span>
                         </Link>
                       </SidebarMenuButton>
                       {

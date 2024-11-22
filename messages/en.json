@@ -24,5 +24,24 @@
   "HELPER_TEXT": {
     "INVALID_EMAIL": "Please input valid email",
     "INVALID_PASSWORD": "Password must have from 6 to 255 characters"
+  },
+  "DASHBOARD": {
+    "SIDEBAR": {
+      "DASHBOARD": "Dashboard",
+      "TASK": "Tasks",
+      "SCHEDULES": "Schedule",
+      "PROJECT": "Project"
+    },
+    "SEARCHBAR": "Search anything",
+    "TABLE_HEADER": {
+      "PROJECT": "Project",
+      "LAST_ASSESSED": "Last assessed",
+      "LICENSE_USE": "License use"
+    },
+    "PAGINATION": {
+      "PREV": "Previous",
+      "NEXT": "Next",
+      "PAGE": "Page"
+    }
   }
 }
