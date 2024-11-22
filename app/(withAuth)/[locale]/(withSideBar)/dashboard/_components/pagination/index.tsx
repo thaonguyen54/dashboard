@@ -35,6 +35,7 @@ const DashboardPagination = ({ meta }: MetaProps) => {
         {t("PAGE")} {meta.pagination.page} of {meta.pagination.pageCount}
       </span>
       <button
+        disabled={meta.pagination.page >= meta.pagination.pageCount}
         onClick={() => {
           handleNext(meta.pagination.page);
         }}
