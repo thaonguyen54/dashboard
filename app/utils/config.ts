@@ -17,8 +17,8 @@ export const fetcher = async (endpoint: string, method: string, token?: string, 
     if (!res.ok) {
         throw new Error("An error occurred while fetching the data.");
     }
-//111
-    return res.json();
+
+    return res;
 }
 
 const generateParamString = (params: object) => {

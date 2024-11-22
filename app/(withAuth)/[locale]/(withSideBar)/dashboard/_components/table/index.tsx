@@ -20,6 +20,9 @@ import DeleteIcon from "@/app/_components/Icons/DeleteIcon";
 import EditIcon from "@/app/_components/Icons/EditIcon";
 import DashboardPagination from "../pagination";
 import { useTranslations } from "next-intl";
+import DialogConfirm from "@/app/_components/ConfirmDialog";
+import { deleteProject, editProject } from "../../action";
+import DialogEdit from "@/app/_components/EditDialog";
 
 const licenseStyle = (license: string) => {
   switch (license) {
@@ -34,6 +37,12 @@ interface TableProps {
   projects: Project[];
   meta: Meta;
 }
+
+const FORM_EDIT_PROPS = [
+  { name: "Project", key: "name", type: "text" },
+  { name: "Domain", key: "domain", type: "text" },
+  { name: "Last Assessed", key: "lastAssessed", type: "date" },
+];
 
 const DashboardTable = ({ projects, meta }: TableProps) => {
   const t = useTranslations("DASHBOARD.TABLE_HEADER");
@@ -99,10 +108,26 @@ const DashboardTable = ({ projects, meta }: TableProps) => {
               <TableCell>
                 <div className="flex gap-1 justify-end mr-1">
                   <div className="p-4 hover:cursor-pointer">
-                    <DeleteIcon width="20" height="20" />
+                    <DialogConfirm
+                      item={project}
+                      trigger={<DeleteIcon width="20" height="20" />}
+                      title="Do you want to delete this project?"
+                      description="Be careful, this action cannot be undone."
+                      actionText="Delete"
+                      className="bg-main-opposition"
+                      actionConfirm={deleteProject}
+                    />
                   </div>
                   <div className="p-4 hover:cursor-pointer">
-                    <EditIcon width="20" height="20" />
+                    <DialogEdit
+                      item={project}
+                      trigger={<EditIcon width="20" height="20" />}
+                      title="Edit Project"
+                      description="Make changes to your profile here. Click save when you're done."
+                      contents={FORM_EDIT_PROPS}
+                      className="bg-main-opposition"
+                      save={editProject}
+                    />
                   </div>
                 </div>
               </TableCell>

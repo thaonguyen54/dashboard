@@ -2,6 +2,8 @@ import { ThemeProvider } from "next-themes";
 import {Plus_Jakarta_Sans} from "next/font/google"
 import type { Metadata } from "next";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +24,8 @@ export default function RootLayout({
       <body className={plus_jakarta_sans.className}>
         <ThemeProvider attribute="class" defaultTheme="light">
           {children}
-        </ThemeProvider>  
+          <ToastContainer />
+        </ThemeProvider>
       </body>
     </html>
   );
